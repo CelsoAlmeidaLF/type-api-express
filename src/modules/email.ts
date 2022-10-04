@@ -3,9 +3,6 @@ import { IMailDTO, IMail } from './interface/email'
 import {ModelEmail} from '../models/ModelEmail'
 
 export class EmailService implements IMail {
-    constructor(){
-        
-    }
 
     MailSend(to:string, subject:string, body:string, html:boolean): ModelEmail | undefined {
         try{

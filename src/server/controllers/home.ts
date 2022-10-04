@@ -8,12 +8,12 @@ export class Home {
             
             let bll = new Business();
 
-            let date = `${format(new Date(), 'yyyy-MM-dd HH:mm:ss')}`
+            let date = `${format(new Date(), 'yyyy-MM-dd HH:mm:ss')}`;
             let uuid : string = v4();
            
-            let json = req.body
-            json.uid = uuid
-            json.dtConsulta = date
+            let json = req.body;
+            json.uid = uuid;
+            json.dtConsulta = date;
 
             let get = bll.get(json);
 

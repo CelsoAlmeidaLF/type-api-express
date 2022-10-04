@@ -7,4 +7,4 @@ let controllers = new Home();
 
 router.get('/', controllers.index);
 
-export = router
+export = router;
