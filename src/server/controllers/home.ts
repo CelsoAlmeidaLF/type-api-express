@@ -15,13 +15,12 @@ export class Home {
             json.uid = uuid;
             json.dtConsulta = date;
 
-            let get = bll.get(json);
+            bll.get();
 
             res.json({
                 mensagem: 'systekna, testing...',
                 dtConsulta: date,
-                uid:uuid,
-                get: get
+                uid:uuid
         });
     }
 }
