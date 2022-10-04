@@ -1,0 +1,25 @@
+
+import {ModelEmail} from '../../models/ModelEmail'
+
+export interface IEmailTo {
+    to: string,
+    name: string
+}
+
+export interface IMailMessage {
+    subject: string,
+    body: string,
+    html: boolean
+    attachment?: string[]
+}
+
+export interface IMailDTO{
+    to: IEmailTo,
+    message: IMailMessage
+}
+
+export interface IMail{
+    MailSend(to:string, subject:string, body:string, html:boolean): ModelEmail | undefined
+    MailRead(): ModelEmail | undefined
+    Send({to, message} : IMailDTO ): ModelEmail | undefined
+}
