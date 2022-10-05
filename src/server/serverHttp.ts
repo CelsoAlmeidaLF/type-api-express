@@ -17,6 +17,5 @@ export class ServerHttp {
     CreateServer(){
         app.listen(port, () => 
             console.log(`rodando: http://localhost:${port}/api`));
-    }  
-    
+    }    
 }

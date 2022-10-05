@@ -1,27 +1,26 @@
-import {Response, Request} from 'express';
 import { format } from 'date-fns';
-import {v4} from 'uuid';
+import {Response, Request} from 'express';
 import { Business } from '../../app/business';
+import { Log } from '../../modules/log';
+import { Util } from '../util';
 
 export class Home { 
-        index(req: Request, res: Response){
-            
-            let bll = new Business();
 
-            let date = `${format(new Date(), 'yyyy-MM-dd HH:mm:ss')}`;
-            let uuid : string = v4();
-           
-            let json = req.body;
-            json.uid = uuid;
-            json.dtConsulta = date;
+    async index(req: Request, res: Response){
+        
+        let date = `${format(new Date(), 'yyyy-MM-dd HH:mm:ss')}`;
+        let result = `LOG [ data consulta: ${date} ]: method: ${req.method}:index`;
 
-            let get = bll.get(json);
+        let bll = new Business();
+        let log = new Log();         
 
-            res.json({
-                mensagem: 'systekna, testing...',
-                dtConsulta: date,
-                uid:uuid,
-                get: get
-        });
+        log.result = result;
+
+        log.print();
+        log.saveLog(result);
+
+        let json: any = { mensagem: 'testing, api ...',dtConsulta: date };
+        await Util.Ok(res, json);
     }
+    
 }

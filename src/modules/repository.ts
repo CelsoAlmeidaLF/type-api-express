@@ -1,50 +1,56 @@
 import { ModelBase } from "../models/modelBase"
 import {IRepository} from './interface/repository'
+import { Database } from "../data/database"
+import SQL from "sql-template-strings";
 
-export class Repository implements	IRepository {
+let db: any = undefined
+
+export class Repository implements IRepository {
     
     constructor(){   
+        db = new Database();
     }
 
-    GetAll(entity: ModelBase): undefined {
+    async GetAll(): Promise<any[]> {
         try{
-            return undefined
+            return await db.getall('select * from tb_teste');
         }
         catch(err){
             throw err;
         }
     }
 
-    Get(entity: ModelBase): undefined {
+    async Get(entity: ModelBase): Promise<any[]> {
         try{
-            return undefined
+            let SQL = ''
+            return await db.getall(SQL);
         }
         catch(err){
             throw err;
         }
     }
 
-    Set(entity: ModelBase): undefined {
+    Set(entity: ModelBase): void {
         try{
-            return undefined
+            db.execCommand('...');
+        }
+        catch(err){
+            console.error(err)
+        }
+    }
+
+    Up(entity: ModelBase): void {
+        try{
+            db.execCommand('...');
         }
         catch(err){
             throw err;
         }
     }
 
-    Up(entity: ModelBase): undefined {
+    Del(entity: ModelBase): void {
         try{
-            return undefined
-        }
-        catch(err){
-            throw err;
-        }
-    }
-
-    Del(entity: ModelBase): undefined {
-        try{
-            return undefined
+            db.execCommand('...');
         }
         catch(err){
             throw err;
