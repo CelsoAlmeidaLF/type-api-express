@@ -8,7 +8,7 @@ export class Database {
     }
 
     // Get List
-    async GetAll(sql: string) {
+    async getall(sql: string) {
         let db = this.Open();
 
         try{
@@ -25,7 +25,7 @@ export class Database {
     }
 
     // Exec Command
-    async ExecCommand(sql: string) {
+    async execCommand(sql: string) {
         try{    
             let db = this.Open();
             db.exec(sql);    
@@ -36,7 +36,7 @@ export class Database {
     }
 
     // Run Command
-    async RunCommand(sql: string) {
+    async runCommand(sql: string) {
         try{    
             let db = this.Open();
             db.run(sql);    

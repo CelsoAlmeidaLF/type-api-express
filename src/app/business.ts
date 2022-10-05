@@ -1,10 +1,11 @@
-import { Database } from "../data/database"
+import { ModelBase } from "../models/modelBase";
+import { Repository } from "../modules/repository";
 
  export class Business {
 
     async getall() {
-        let db = new Database();
-        let rows = await db.GetAll('SELECT * FROM tb_teste')
+        let dal = new Repository();
+        let rows = await dal.GetAll();
         return rows;
     }
 
