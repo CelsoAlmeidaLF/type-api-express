@@ -7,12 +7,19 @@ export class Database {
         return db;
     }
 
-    GetAll(): any {
+    GetAll(sql: string) {
         try{        
-            return undefined
+            //return undefined
+            let db = this.Open();
+            //db.all(sql, ( err: Error | null, rows: any[]) => { console.log(rows) }); 
+            //let rows = db.all(sql, (err: Error | null, rows: any[]) => {  return new Promise<any[]>((res, rej) => res(rows));  });
+            let rows = new Promise<any[]>((res, rej) => { db.all(sql, (err: Error | null, rows: any[]) => { res(rows) }) });
+            console.log(rows);
+
+            //let rows = [{user:"testing..."}, {senha:"testing..."}]
         }
         catch(err){
-            throw err;
+            console.error(err);
         }
     }
 
