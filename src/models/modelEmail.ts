@@ -1,14 +1,14 @@
 export class ModelEmail {
     
-    de: String;
-    para: String;
-    assunto: String;
-    isHttp: Boolean;
+    de: String | undefined;
+    para: String | undefined;
+    assunto: String | undefined;
+    isHttp: Boolean | undefined;
 
     constructor(){
-        this.de = '';
-        this.para= '';
-        this.assunto= '';
+        this.de = undefined;
+        this.para= undefined;
+        this.assunto= undefined;
         this.isHttp= false;
     }
 }
