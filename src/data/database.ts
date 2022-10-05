@@ -3,7 +3,7 @@ import sqlite3 from "sqlite3";
 export class Database {
 
     private Open(): any {
-        let db = new sqlite3.Database('./database.db');
+        let db = new sqlite3.Database('./data/database.db');
         return db;
     }
 
