@@ -1,6 +1,7 @@
 import { ModelBase } from "../models/modelBase"
 import {IRepository} from './interface/repository'
 import { Database } from "../data/database"
+import SQL from "sql-template-strings";
 
 let db: any = undefined
 
@@ -21,7 +22,8 @@ export class Repository implements IRepository {
 
     async Get(entity: ModelBase): Promise<any[]> {
         try{
-            return await db.getall('select * from tb_teste');
+            let SQL = ''
+            return await db.getall(SQL);
         }
         catch(err){
             throw err;
