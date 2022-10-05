@@ -7,23 +7,25 @@ export class Database {
         return db;
     }
 
-    GetAll(sql: string) {
-        try{        
-            //return undefined
-            let db = this.Open();
-            //db.all(sql, ( err: Error | null, rows: any[]) => { console.log(rows) }); 
-            //let rows = db.all(sql, (err: Error | null, rows: any[]) => {  return new Promise<any[]>((res, rej) => res(rows));  });
-            let rows = new Promise<any[]>((res, rej) => { db.all(sql, (err: Error | null, rows: any[]) => { res(rows) }) });
-            console.log(rows);
+    // Get List
+    async GetAll(sql: string) {
+        let db = this.Open();
 
-            //let rows = [{user:"testing..."}, {senha:"testing..."}]
+        try{
+             return new Promise<any[]>((res, rej) => { 
+                 db.all(sql, (err: Error | null, rows: any[]) => { 
+                    if(err) { rej(err) }
+                    else { res(rows) }
+                });
+            });
         }
         catch(err){
-            console.error(err);
+            throw err;
         }
     }
 
-    ExecCommand(sql: string) {
+    // Exec Command
+    async ExecCommand(sql: string) {
         try{    
             let db = this.Open();
             db.exec(sql);    
@@ -33,7 +35,8 @@ export class Database {
         }
     }
 
-    RunCommand(sql: string) {
+    // Run Command
+    async RunCommand(sql: string) {
         try{    
             let db = this.Open();
             db.run(sql);    

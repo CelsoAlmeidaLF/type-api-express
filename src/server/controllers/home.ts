@@ -4,7 +4,7 @@ import {v4} from 'uuid';
 import { Business } from '../../app/business';
 
 export class Home { 
-        index(req: Request, res: Response){
+        async index(req: Request, res: Response){
             
             let bll = new Business();
 
@@ -15,12 +15,13 @@ export class Home {
             json.uid = uuid;
             json.dtConsulta = date;
 
-            bll.get();
+            let rows = await bll.getall();
 
             res.json({
-                mensagem: 'systekna, testing...',
+                mensagem: 'testing...',
                 dtConsulta: date,
-                uid:uuid
+                uid:uuid,
+                rows:rows
         });
     }
 }
