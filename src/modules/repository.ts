@@ -1,4 +1,3 @@
-import { ModelBase } from "../models/modelBase"
 import {IRepository} from './interface/repository'
 import { Database } from "../data/database"
 

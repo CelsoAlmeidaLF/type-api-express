@@ -4,15 +4,16 @@ import nodemailer from 'nodemailer'
 
 export class EmailService implements IMail {
 
-    async MailSend(to:string, subject:string, body:string, html:boolean) {
+    async MailSend(to:string, subject:string, body:string, html:boolean = false) {
 
         let from: string = 'CelsoAlmeida <celso.almeida.leite@hotmail.com>';
-
-        let { host, user, pass } = this.get('celso.almeida.leite@hotmail.com');
+        let { host, user, pass } = this.server('celso.almeida.leite@hotmail.com');
+        let info: any
 
         try{
+            
             let transporter = nodemailer.createTransport({
-                host:host,
+                host: host,
                 port: 587,
                 secure: false,
                 auth: {
@@ -21,9 +22,11 @@ export class EmailService implements IMail {
                 }
             });
 
+            //console.log(transporter)
+
             if(html === true){
                 // send mail with defined transport object
-                let info = await transporter.sendMail({
+                info = await transporter.sendMail({
                     from: from, // sender address
                     to: to, // list of receivers
                     subject: subject, // Subject line
@@ -32,7 +35,7 @@ export class EmailService implements IMail {
             }
             else{
                 // send mail with defined transport object
-                let info = await transporter.sendMail({
+                info = await transporter.sendMail({
                     from: from, // sender address
                     to: to, // list of receivers
                     subject: subject, // Subject line
@@ -94,12 +97,18 @@ export class EmailService implements IMail {
         }
     }
 
-    get(user: string){
+    server(user: string){
         return {
-            host: "",
+            host: '', //"smtp.office365.com",
             user: user,
-            pass: ""
+            pass: "*********"
         }
     }
 
+}
+
+export class Email extends EmailService {
+    constructor(){
+        super()
+    }
 }
