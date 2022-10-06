@@ -1,12 +1,14 @@
 export class ModelUser {
     
-    userName: string | undefined;
+    user: string | undefined;
     email: string | undefined;
     password: string | undefined;
+    token: string| undefined;
 
     constructor(){
-        this.userName = undefined;
+        this.user = undefined;
         this.email= undefined;
         this.password= undefined;
+        this.token= undefined;
     }
 }

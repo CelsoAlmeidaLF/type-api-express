@@ -16,7 +16,7 @@ export class Home {
         let aut = new Autentication();
         let log = new Log();
 
-        if(aut.getToken(token)){
+        if(await aut.getToken(token)){
             let json: any = { Usuario: bll.get(user), dtConsulta: date };
             await Util.Ok(res, json);
         }
