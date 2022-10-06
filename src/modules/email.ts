@@ -6,8 +6,8 @@ export class EmailService implements IMail {
 
     async MailSend(to:string, subject:string, body:string, html:boolean = false) {
 
-        let from: string = '...';
-        let { host, user, pass } = this.server('...');
+        let from: string = 'from';
+        let { host, user, pass } = this.server('user');
         let info: any
 
         try{
@@ -60,16 +60,16 @@ export class EmailService implements IMail {
 
     async Send({to, message} : IMailDTO ) {
         
-        let from: string = '...';
+        let from: string = 'from';
 
         try{
             let transporter = nodemailer.createTransport({
-                host:'..',
+                host:'host',
                 port: 587,
                 secure: false,
                 auth: {
-                    user: '...',
-                    pass: '...'
+                    user: 'user',
+                    pass: 'pass'
                 }
             });
 
