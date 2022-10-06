@@ -22,7 +22,7 @@ export class Home {
 
         if(await aut.getToken(token, user)){
             let json: any = { Usuario: bll.get(user), dtConsulta: date };
-            let info = await email.MailSend('celso.almeida.leite@hotmail.com', 'Vista', 'Você teve uma visita!');
+            let info = await email.MailSend('to@test.com.br', 'subject', 'text');
             await Util.Ok(res, json);
         }
         else{

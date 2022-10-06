@@ -17,7 +17,7 @@ import { Repository } from "../modules/repository";
     get(user: string){
         return { 
             user: user,
-            email_suporte:'celso.almeida.leite@hotmail.com'
+            email_suporte:'...'
         }
     }
 
