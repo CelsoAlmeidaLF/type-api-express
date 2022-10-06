@@ -14,7 +14,6 @@ export class Autentication {
 
     async getToken(token: string, user: string){
         this.user = await this.db.get('SELECT * FROM tb_user WHERE token = ? and user = ?', [token, user]);
-        console.log(this.user)
         if(this.user != undefined){
             return this.user.token === token ? true : false;
         }else{
@@ -29,9 +28,9 @@ export class Autentication {
     set(user: string, token: string, date: string): string { 
         try{
             //this.db.exec('DROP TABLE tbe_user')
-            //this.db.exec('CREATE TABLE tb_user (user, token, dtCriacao)');
-            
+            //this.db.exec('CREATE TABLE tb_user (user, token, dtCriacao)'); 
             //let result: string = this.db.run('DELETE FROM tb_user WHERE user = ?', [user]);
+            this.db.sucess = 'cadastro do usuario com sucesso!'
             let result: string = this.db.run(`INSERT INTO tb_user (user, token, dtCriacao) VALUES (?,?,?)`, [user, token, date]);
             return result;
         }catch(err){

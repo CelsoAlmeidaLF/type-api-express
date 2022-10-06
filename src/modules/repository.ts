@@ -2,7 +2,7 @@ import { ModelBase } from "../models/modelBase"
 import {IRepository} from './interface/repository'
 import { Database } from "../data/database"
 
-let db: any = undefined
+let db: Database | any
 
 export class Repository implements IRepository {
     
@@ -10,46 +10,48 @@ export class Repository implements IRepository {
         db = new Database();
     }
 
-    async GetAll(): Promise<any[]> {
+    async getall(): Promise<any[]> {
         try{
-            return await db.getall('select * from tb_teste');
+            return await db.getall('', undefined);
         }
         catch(err){
             throw err;
         }
     }
 
-    async Get(entity: ModelBase): Promise<any[]> {
+    async get(sql: string, params: any[] | undefined): Promise<any[]> {
         try{
-            let SQL = ''
-            return await db.getall(SQL);
+            return await db.get(sql, params);
         }
         catch(err){
             throw err;
         }
     }
 
-    Set(entity: ModelBase): void {
+    set(sql: string, params: any[] | undefined): void {
         try{
-            db.execCommand('...');
+            db.sucess = 'cadastro com sucesso!';
+            db.run(sql, params);
         }
         catch(err){
             console.error(err)
         }
     }
 
-    Up(entity: ModelBase): void {
+    up(sql: string, params: any[] | undefined): void {
         try{
-            db.execCommand('...');
+            db.sucess = 'atualização com sucesso!';
+            db.run(sql, params);
         }
         catch(err){
             throw err;
         }
     }
 
-    Del(entity: ModelBase): void {
+    del(sql: string, params: any[] | undefined): void {
         try{
-            db.execCommand('...');
+            db.sucess = 'remoção com sucesso!';
+            db.run(sql, params);
         }
         catch(err){
             throw err;

@@ -2,11 +2,18 @@ import sqlite3 from "sqlite3";
 
 export class Database {
 
+    public sucess: string
+
+    constructor(){
+        this.sucess = ''
+    }
+
     private Open(): sqlite3.Database {
         let db: sqlite3.Database = new sqlite3.Database('./database.db');
         return db;
     }
 
+    // Get Entity
     async get(sql: string, params: any[] | undefined){
         let db = this.Open();
 
@@ -47,12 +54,12 @@ export class Database {
     }
 
     // Exec Command
-    exec(sql: string) {
+    exec(sql: string): string {
         let db = this.Open();
 
         try{    
             db.exec(sql);
-            return 'sucess na execução...';
+            return this.sucess;
         }
         catch(err){
             throw err;
@@ -68,7 +75,7 @@ export class Database {
 
         try{    
             db.run(sql, params);    
-            return 'sucess na execução...';
+            return this.sucess;
         }
         catch(err){
             throw err;

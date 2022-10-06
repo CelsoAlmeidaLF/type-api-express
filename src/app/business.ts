@@ -4,14 +4,20 @@ import { Repository } from "../modules/repository";
 
     async getall() {
         let dal = new Repository();
-        let rows = await dal.GetAll();
+        let rows = await dal.getall();
+        return rows;
+    }
+
+    async getTable(table: string, params: any[] | undefined){
+        let dal = new Repository();
+        let rows = await dal.get(`select* from ${table}`, params);
         return rows;
     }
 
     get(user: string){
         return { 
             user: user,
-            email:'celso.almeida.leite@hotmail.com'
+            email_suporte:'celso.almeida.leite@hotmail.com'
         }
     }
 
