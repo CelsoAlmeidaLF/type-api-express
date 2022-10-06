@@ -12,8 +12,9 @@ export class Autentication {
         this.db = new Database();
     }
 
-    async getToken(token: string){
-        this.user = await this.db.get('SELECT * FROM tb_user WHERE token = ?', [token]);
+    async getToken(token: string, user: string){
+        this.user = await this.db.get('SELECT * FROM tb_user WHERE token = ? and user = ?', [token, user]);
+        console.log(this.user)
         if(this.user != undefined){
             return this.user.token === token ? true : false;
         }else{
@@ -29,9 +30,9 @@ export class Autentication {
         try{
             //this.db.exec('DROP TABLE tbe_user')
             //this.db.exec('CREATE TABLE tb_user (user, token, dtCriacao)');
-
-            let result: string = this.db.run(`INSERT INTO tb_user (user, token, dtCriacao) VALUES ('?', '?','?')`, 
-                [user, token, date]);
+            
+            //let result: string = this.db.run('DELETE FROM tb_user WHERE user = ?', [user]);
+            let result: string = this.db.run(`INSERT INTO tb_user (user, token, dtCriacao) VALUES (?,?,?)`, [user, token, date]);
             return result;
         }catch(err){
             return 'error: ' + err
