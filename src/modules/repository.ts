@@ -1,7 +1,6 @@
 import { ModelBase } from "../models/modelBase"
 import {IRepository} from './interface/repository'
 import { Database } from "../data/database"
-import SQL from "sql-template-strings";
 
 let db: any = undefined
 

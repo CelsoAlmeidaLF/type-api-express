@@ -14,7 +14,23 @@ export class Util {
             dtConsulta: date,
             result: js
         }
+
         res.json(json);
+
+    }
+
+    static async Fail(res: Response, js: JSON) {
+
+        let date = `${format(new Date(), 'yyyy-MM-dd HH:mm:ss')}`;
+        let uuid : string = v4();
+
+        let json = {
+            uid: uuid,
+            dtConsulta: date,
+            result: js
+        }
+        
+        res.status(400).json(json);
 
     }
 } 
