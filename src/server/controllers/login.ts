@@ -6,42 +6,63 @@ import { Autentication } from '../../modules/autentication';
 
 export class Login { 
 
-    async index(req: Request, res: Response){
+    async index(req: Request, res: Response) {
         
-        let { token, user } = req.body
-        let date: string = `${format(new Date(), 'yyyy-MM-dd HH:mm:ss')}`;
-
         let aut = new Autentication();
-        let log = new Log();    
+        let log = new Log();
 
-        if(aut.getToken(token)){
-            let json: any = { Result: aut.set(user, token, date) };
+        let { token, user } = req.body
+        let date = `${format(new Date(), 'yyyy-MM-dd HH:mm:ss')}`;
+
+        await log.saveLog(`[ data log: ${date} ]\tmethod: ${req.method}\taction: login/index`)
+
+        if(await aut.getToken(token, user)){ 
+            let json: any = { dtConsulta: date };
             await Util.Ok(res, json);
         }
         else{
-            let json: any = { Falha: 'falha de token!', dtConsulta: date };
-            await Util.Fail(res, json);
+            res.redirect("/")
         }
 
     }   
 
-    async get(req: Request, res: Response){
+    async list(req: Request, res: Response) {
         
-        let { token, user } = req.body
-        let date: string = `${format(new Date(), 'yyyy-MM-dd HH:mm:ss')}`;
-
         let aut = new Autentication();
-        let log = new Log();    
+        let log = new Log();
+        let { token, user} = req.body;
+        let date = `${format(new Date(), 'yyyy-MM-dd HH:mm:ss')}`;
 
-        if(aut.getToken(token)){
-            let json: any = { Result: await aut.getall() };
+        await log.saveLog(`[ data log: ${date} ]\tmethod: ${req.method}\taction: login/index`)
+
+        if(await aut.getToken(token, user)){ 
+            let json: any = { Result: await aut.getall(), dtConsulta: date };
             await Util.Ok(res, json);
         }
         else{
-            let json: any = { Falha: 'falha de token!', dtConsulta: date };
-            await Util.Fail(res, json);
+            res.redirect("/")
         }
 
-    } 
+    }   
+
+    async add(req: Request, res: Response) {
+        
+        let aut = new Autentication();
+        let log = new Log();
+
+        let { token, user, User } = req.body
+        let date = `${format(new Date(), 'yyyy-MM-dd HH:mm:ss')}`;
+
+        await log.saveLog(`[ data log: ${date} ]\tmethod: ${req.method}\taction: login/add`)
+
+        if(await aut.getToken(token, user)){ 
+            let json: any = { Add: aut.set(User.user, User.token, date), dtConsulta: date };
+            await Util.Ok(res, json);
+        }
+        else{
+            res.redirect("/")
+        }
+
+    }   
 
 }
