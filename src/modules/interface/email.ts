@@ -19,7 +19,7 @@ export interface IMailDTO{
 }
 
 export interface IMail{
-    MailSend(to:string, subject:string, body:string, html:boolean): ModelEmail | undefined
-    MailRead(): ModelEmail | undefined
-    Send({to, message} : IMailDTO ): ModelEmail | undefined
+    MailSend(to:string, subject:string, body:string, html:boolean): any
+    MailRead(): any
+    Send({to, message} : IMailDTO ): any
 }
