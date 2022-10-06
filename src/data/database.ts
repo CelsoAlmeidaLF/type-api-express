@@ -2,8 +2,8 @@ import sqlite3 from "sqlite3";
 
 export class Database {
 
-    private Open(): any {
-        let db = new sqlite3.Database('./data/database.db');
+    private Open(): sqlite3.Database {
+        let db: sqlite3.Database = new sqlite3.Database('./database.db');
         return db;
     }
 
@@ -25,24 +25,32 @@ export class Database {
     }
 
     // Exec Command
-    async execCommand(sql: string) {
+    execCommand(sql: string) {
+        let db = this.Open();
+
         try{    
-            let db = this.Open();
-            db.exec(sql);    
+            db.exec(sql);
         }
         catch(err){
             console.error(err);
+        }
+        finally{
+            db.close();
         }
     }
 
     // Run Command
-    async runCommand(sql: string) {
+    runCommand(sql: string) {
+        let db = this.Open();
+
         try{    
-            let db = this.Open();
             db.run(sql);    
         }
         catch(err){
             console.error(err);
+        }
+        finally{
+            db.close();
         }
     }
 

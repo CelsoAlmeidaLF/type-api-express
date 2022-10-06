@@ -1,4 +1,3 @@
-import { ModelBase } from "../models/modelBase";
 import { Repository } from "../modules/repository";
 
  export class Business {
@@ -7,6 +6,13 @@ import { Repository } from "../modules/repository";
         let dal = new Repository();
         let rows = await dal.GetAll();
         return rows;
+    }
+
+    get(user: string){
+        return { 
+            user: user,
+            email:'celso.almeida.leite@hotmail.com'
+        }
     }
 
 }
