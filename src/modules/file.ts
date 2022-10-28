@@ -1,10 +1,12 @@
 import ModelFile from "../models/modelFile"
 import IFile from './interface/file'
 import fs from "fs";
+import Framework from "./library/framework";
 
-export default class FileTS implements IFile {
+export default class FileTS extends Framework implements IFile {
 
     constructor(){
+        super()
     }
 
         ImportTXT(file: ModelFile){

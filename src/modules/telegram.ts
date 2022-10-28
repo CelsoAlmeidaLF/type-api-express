@@ -1,13 +1,15 @@
 
 import TelegramBot from "node-telegram-bot-api";
 import { format } from 'date-fns';
+import Framework from "./library/framework";
 
-export default class Telegram {
+export default class Telegram extends Framework {
 
         private token: string
         private chatId: string
 
         constructor(){
+            super()
             this.token = '...';
             this.chatId = '...';
         }
