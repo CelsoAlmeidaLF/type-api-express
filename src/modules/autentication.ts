@@ -1,8 +1,8 @@
 import { result } from "lodash";
-import { Database } from "../data/database";
-import { ModelUser } from "../models/modelUser";
+import Database from "./database";
+import ModelUser from "../models/modelUser";
 
-export class Autentication {
+export default class Autentication {
 
     private db: Database
     private user: ModelUser

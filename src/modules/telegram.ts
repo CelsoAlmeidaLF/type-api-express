@@ -2,7 +2,7 @@
 import TelegramBot from "node-telegram-bot-api";
 import { format } from 'date-fns';
 
-export class Telegram {
+export default class Telegram {
 
         private token: string
         private chatId: string

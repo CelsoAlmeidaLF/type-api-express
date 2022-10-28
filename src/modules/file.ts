@@ -1,8 +1,8 @@
-import { ModelFile } from "../models/modelFile"
-import { IFile } from './interface/file'
+import ModelFile from "../models/modelFile"
+import IFile from './interface/file'
 import fs from "fs";
 
-export class FileTS implements IFile {
+export default class FileTS implements IFile {
 
     constructor(){
     }

@@ -1,7 +1,7 @@
 
-import { LogEvents } from "../log/logEvents";
+import { LogEvents } from "./logEvents";
 
-export class Log extends LogEvents {
+export default class Log extends LogEvents {
 
     constructor(){
         super()

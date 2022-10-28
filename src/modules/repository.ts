@@ -1,9 +1,9 @@
-import {IRepository} from './interface/repository'
-import { Database } from "../data/database"
+import IRepository from './interface/repository'
+import Database from "./database"
 
 let db: Database | any
 
-export class Repository implements IRepository {
+export default class Repository implements IRepository {
     
     constructor(){   
         db = new Database();

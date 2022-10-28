@@ -1,4 +1,4 @@
-export class ModelBase {
+export default class ModelBase {
     
     ID: Number;
     dtCriacao: Date | undefined;

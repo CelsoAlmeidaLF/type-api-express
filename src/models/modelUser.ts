@@ -1,4 +1,4 @@
-export class ModelUser {
+export default class ModelUser {
     
     user: string | undefined;
     email: string | undefined;

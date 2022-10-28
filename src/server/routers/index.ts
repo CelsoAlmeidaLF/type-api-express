@@ -13,4 +13,4 @@ router.get('/', home.index);
 router.post('/login/add', login.add);
 router.get('/login/list', login.list);
 
-export = router;
+export default router;

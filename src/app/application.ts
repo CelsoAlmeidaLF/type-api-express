@@ -1,6 +1,6 @@
 import { ServerHttp } from "../server/serverHttp";
 
-export class Application {
+export default class Application {
     constructor(){       
         console.clear();
         let server = new ServerHttp();

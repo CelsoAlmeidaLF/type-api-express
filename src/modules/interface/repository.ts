@@ -1,6 +1,6 @@
-import { ModelBase } from "../../models/modelBase"
+import ModelBase from "../../models/modelBase"
 
-export interface IRepository {
+export default interface IRepository {
     getall(sql: string, params: any[] | undefined): Promise<any[]>
     get(sql: string, params: any[] | undefined): Promise<any[]>
     set(sql: string, params: any[] | undefined): void

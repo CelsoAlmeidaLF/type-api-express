@@ -1,13 +1,13 @@
 import { format } from 'date-fns';
 import { Response, Request } from 'express';
-import { Business } from '../../app/business';
-import { Log } from '../../modules/log';
-import { Util } from '../util';
-import { Autentication } from '../../modules/autentication';
+import Business from '../../app/business';
+import Log from '../../modules/log';
+import Util from '../util';
+import Autentication from '../../modules/autentication';
 import { Email } from '../../modules/email';
-import { Telegram } from '../../modules/telegram';
+import Telegram from '../../modules/telegram';
 
-export class Home { 
+export default class Home { 
 
     async index(req: Request, res: Response) {
         

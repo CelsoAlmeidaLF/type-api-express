@@ -5,7 +5,7 @@ import router from './routers/index';
 const app = express();
 const port : number = 3000;
 
-export class ServerHttp {
+export default class ServerHttp {
 
     constructor(){
         app.use(parser.urlencoded({extended: true}));

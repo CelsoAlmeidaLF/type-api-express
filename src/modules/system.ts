@@ -1,3 +1,3 @@
-export class System {
+export default class System {
 
 }

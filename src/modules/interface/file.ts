@@ -1,6 +1,6 @@
-import { ModelFile } from "../../models/modelFile"
+import ModelFile from "../../models/modelFile"
 
-export interface IFile {
+export default interface IFile {
     ImportTXT(file: ModelFile): any
     ImportCSV(file: ModelFile): any
     ImportXLSX(file: ModelFile): any

@@ -1,6 +1,6 @@
 import sqlite3 from "sqlite3";
 
-export class Database {
+export default class Database {
 
     public sucess: string
 

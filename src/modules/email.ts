@@ -2,7 +2,7 @@
 import { IMailDTO, IMail } from './interface/email'
 import nodemailer from 'nodemailer'
 
-export class EmailService implements IMail {
+export default class EmailService implements IMail {
 
     async MailSend(to:string, subject:string, body:string, html:boolean = false) {
 
