@@ -1,10 +1,10 @@
 import { format } from 'date-fns';
 import { Response, Request } from 'express';
-import { Log } from '../../modules/log';
-import { Util } from '../util';
-import { Autentication } from '../../modules/autentication';
+import Log from '../../modules/log';
+import Util from '../util';
+import Autentication from '../../modules/autentication';
 
-export class Login { 
+export default class Login { 
 
     async index(req: Request, res: Response) {
         

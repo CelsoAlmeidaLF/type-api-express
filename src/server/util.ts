@@ -2,7 +2,7 @@ import { format } from 'date-fns';
 import {v4} from 'uuid';
 import {Response} from 'express';
 
-export class Util {
+export default class Util {
     
     static async Ok(res: Response, js: JSON) {
 

@@ -1,12 +1,14 @@
 import fs from 'fs'
 import { promises } from 'fs'
 import path from 'path'
+import System from './system';
 
-export class LogEvents {
+export class LogEvents extends System {
 
     result: string;
 
     constructor(){
+        super()
         this.result = ''
     }
 

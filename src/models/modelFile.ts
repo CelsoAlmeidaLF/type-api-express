@@ -1,4 +1,4 @@
-export class ModelFile {
+export default class ModelFile {
     IdArquivo: Number;
     DtImportacao: Date | undefined;
     DtExportacao: Date | undefined;

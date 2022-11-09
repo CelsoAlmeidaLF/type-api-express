@@ -1,8 +1,9 @@
 
 import { IMailDTO, IMail } from './interface/email'
 import nodemailer from 'nodemailer'
+import Framework from './library/framework';
 
-export class EmailService implements IMail {
+export default class EmailService extends Framework implements IMail {
 
     async MailSend(to:string, subject:string, body:string, html:boolean = false) {
 

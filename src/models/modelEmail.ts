@@ -1,4 +1,4 @@
-export class ModelEmail {
+export default class ModelEmail {
     
     de: String | undefined;
     para: String | undefined;

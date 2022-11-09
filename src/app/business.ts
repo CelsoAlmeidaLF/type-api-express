@@ -1,6 +1,6 @@
-import { Repository } from "../modules/repository";
+import Repository from "../modules/repository";
 
- export class Business {
+ export default class Business {
 
     async getall() {
         let dal = new Repository();
