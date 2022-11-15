@@ -6,7 +6,7 @@ export default class ModelEmail {
     isHttp: Boolean | undefined;
 
     constructor(){
-        this.de = undefined;
+        this.de= undefined;
         this.para= undefined;
         this.assunto= undefined;
         this.isHttp= false;

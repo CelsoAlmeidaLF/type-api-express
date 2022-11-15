@@ -7,14 +7,25 @@ const port : number = 3000;
 
 export default class ServerHttp {
 
-    constructor(){
+    middleware(){
         app.use(parser.urlencoded({extended: true}));
         app.use(parser.json());
+    }
+
+    router(){   
         app.use('/api', router);
         app.get('/', (req, res) => { res.redirect('/api') });
     }
 
-    CreateServer(){
+    pipelines(){
+        this.middleware();
+        this.router();
+    }
+
+    createServer(){
+
+        this.pipelines();
+
         app.listen(port, () => 
             console.log(`rodando: http://localhost:${port}/api`));
     }    

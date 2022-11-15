@@ -1,6 +1,7 @@
 import Repository from "../modules/repository";
+import Framework from './framwork';
 
- export default class Business {
+ export default class Business extends Framework {
 
     async getall() {
         let dal = new Repository();

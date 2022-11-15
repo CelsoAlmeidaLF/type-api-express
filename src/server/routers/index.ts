@@ -3,14 +3,12 @@ import Home from '../controllers/home';
 import Login from '../controllers/login';
 
 let router = express.Router();
-let home = new Home();
-let login = new Login();
 
 // Home
-router.get('/', home.index);
+router.get('/', Home.index);
 
 // Login
-router.post('/login/add', login.add);
-router.get('/login/list', login.list);
+router.post('/login/add', Login.add);
+router.get('/login/list', Login.list);
 
 export default router;

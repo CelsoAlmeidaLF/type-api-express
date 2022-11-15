@@ -3,7 +3,7 @@ import { promises } from 'fs'
 import path from 'path'
 import System from './system';
 
-export class LogEvents extends System {
+export default class LogEvents extends System {
 
     result: string;
 

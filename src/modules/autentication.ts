@@ -1,4 +1,3 @@
-import { result } from "lodash";
 import Database from "./library/database";
 import ModelUser from "../models/modelUser";
 import Framework from "./library/framework";

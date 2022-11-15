@@ -1,19 +1,18 @@
 import { format } from 'date-fns';
 import { Response, Request } from 'express';
 import Business from '../../app/business';
-import Log from '../../modules/log';
 import Util from '../util';
+import LogEvents from '../../modules/library/logEvents';
 import Autentication from '../../modules/autentication';
-import { Email } from '../../modules/email';
 import Telegram from '../../modules/telegram';
 
 export default class Home { 
 
-    async index(req: Request, res: Response) {
+    static async index(req: Request, res: Response) {
         
         let aut = new Autentication();
         let bll = new Business();
-        let log = new Log();
+        let log = new LogEvents();
         let telegram = new Telegram(); 
 
         let { token, user } = req.body

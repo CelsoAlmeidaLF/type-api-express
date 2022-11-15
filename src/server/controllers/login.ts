@@ -1,15 +1,15 @@
 import { format } from 'date-fns';
 import { Response, Request } from 'express';
-import Log from '../../modules/log';
+import LogEvents from '../../modules/library/logEvents';
 import Util from '../util';
 import Autentication from '../../modules/autentication';
 
 export default class Login { 
 
-    async index(req: Request, res: Response) {
+    static async index(req: Request, res: Response) {
         
         let aut = new Autentication();
-        let log = new Log();
+        let log = new LogEvents();
 
         let { token, user } = req.body
         let date = `${format(new Date(), 'yyyy-MM-dd HH:mm:ss')}`;
@@ -26,10 +26,10 @@ export default class Login {
 
     }   
 
-    async list(req: Request, res: Response) {
+    static async list(req: Request, res: Response) {
         
         let aut = new Autentication();
-        let log = new Log();
+        let log = new LogEvents();
         let { token, user} = req.body;
         let date = `${format(new Date(), 'yyyy-MM-dd HH:mm:ss')}`;
 
@@ -45,10 +45,10 @@ export default class Login {
 
     }   
 
-    async add(req: Request, res: Response) {
+    static async add(req: Request, res: Response) {
         
         let aut = new Autentication();
-        let log = new Log();
+        let log = new LogEvents();
 
         let { token, user, User } = req.body
         let date = `${format(new Date(), 'yyyy-MM-dd HH:mm:ss')}`;
