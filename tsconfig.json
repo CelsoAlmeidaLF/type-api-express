@@ -1,7 +1,7 @@
 {
     "compilerOptions": {
-        "target": "ES6",
         "forceConsistentCasingInFileNames": true,
+        "target": "ES6",
         "module": "commonjs",
         "watch": true,
         "lib": ["DOM", "ES2017"],
