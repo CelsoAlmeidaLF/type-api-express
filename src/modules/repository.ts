@@ -2,57 +2,59 @@ import IRepository from './interface/repository'
 import Database from "./library/database"
 import Framework from './library/framework';
 
-let db: Database | any
-
 export default class Repository extends Framework implements IRepository {
     
     constructor(){   
         super()
-        db = new Database();
     }
 
-    async getall(): Promise<any[]> {
+    async getall(sql: string, params?: any[]): Promise<any[]> {
         try{
-            return await db.getall('', undefined);
+            this.db = new Database();
+            return await this.db.getall(sql, params);
         }
         catch(err){
             throw err;
         }
     }
 
-    async get(sql: string, params: any[] | undefined): Promise<any[]> {
+    async get(sql: string, params?: any[]): Promise<any[]> {
         try{
-            return await db.get(sql, params);
+            this.db = new Database();
+            return await this.db.get(sql, params);
         }
         catch(err){
             throw err;
         }
     }
 
-    async set(sql: string, params: any[] | undefined): Promise<void> {
+    async set(sql: string, params?: any[]): Promise<void> {
         try{
-            db.sucess = 'cadastro com sucesso!';
-            db.run(sql, params);
+            this.db = new Database();
+            this.db.sucess = 'cadastro com sucesso!';
+            this.db.run(sql, params);
         }
         catch(err){
             console.error(err)
         }
     }
 
-    async up(sql: string, params: any[] | undefined): Promise<void> {
+    async up(sql: string, params?: any[]): Promise<void> {
         try{
-            db.sucess = 'atualização com sucesso!';
-            db.run(sql, params);
+            this.db = new Database();
+            this.db.sucess = 'atualização com sucesso!';
+            this.db.run(sql, params);
         }
         catch(err){
             throw err;
         }
     }
 
-    async del(sql: string, params: any[] | undefined): Promise<void> {
+    async del(sql: string, params?: any[]): Promise<void> {
         try{
-            db.sucess = 'remoção com sucesso!';
-            db.run(sql, params);
+            this.db = new Database();
+            this.db.sucess = 'remoção com sucesso!';
+            this.db.run(sql, params);
         }
         catch(err){
             throw err;

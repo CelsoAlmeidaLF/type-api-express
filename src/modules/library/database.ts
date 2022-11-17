@@ -16,7 +16,7 @@ export default class Database extends System {
     }
 
     // Get Entity
-    async get(sql: string, params: any[] | undefined){
+    async get(sql: string, params?: any[]){
         let db = this.Open();
 
         try{
@@ -36,7 +36,7 @@ export default class Database extends System {
     }
 
     // Get List
-    async getall(sql: string, params: any[] | undefined) {
+    async getall(sql: string, params?: any[]) {
         let db = this.Open();
 
         try{
@@ -61,7 +61,7 @@ export default class Database extends System {
 
         try{    
             db.exec(sql);
-            return this.sucess;
+            return 'sucess';
         }
         catch(err){
             throw err;
@@ -72,12 +72,12 @@ export default class Database extends System {
     }
 
     // Run Command
-    run(sql: string, params: any[] | undefined): string {
+    run(sql: string, params?: any[]): string {
         let db = this.Open();
 
         try{    
             db.run(sql, params);    
-            return this.sucess;
+            return 'sucess';
         }
         catch(err){
             throw err;

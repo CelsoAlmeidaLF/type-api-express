@@ -1,15 +1,15 @@
-import ModelFile from "../app/models/modelFile"
-import IFile from './interface/file'
 import fs from "fs";
+import IFile from "../core/interface/IFile";
+import IStreamFile from "./interface/file";
 import Framework from "./library/framework";
 
-export default class FileTS extends Framework implements IFile {
+export default class FileTS extends Framework implements IStreamFile {
 
     constructor(){
         super()
     }
 
-    ImportTXT(file: ModelFile){
+    ImportTXT(file: IFile){
         try{
             return undefined
         }
@@ -18,7 +18,7 @@ export default class FileTS extends Framework implements IFile {
         }
     }
     
-    ImportCSV(file: ModelFile){
+    ImportCSV(file: IFile){
         try{
             return undefined
         }
@@ -27,7 +27,7 @@ export default class FileTS extends Framework implements IFile {
         }
     }
     
-    ImportXLSX(file: ModelFile){
+    ImportXLSX(file: IFile){
         try{
             return undefined
         }
@@ -36,7 +36,7 @@ export default class FileTS extends Framework implements IFile {
         }
     }
     
-    ExportTXT(file: ModelFile){
+    ExportTXT(file: IFile){
         try{
             return undefined
         }
@@ -45,7 +45,7 @@ export default class FileTS extends Framework implements IFile {
         }
     }
     
-    ExportCSV(file: ModelFile){
+    ExportCSV(file: IFile){
         try{
             return undefined
         }
@@ -54,7 +54,7 @@ export default class FileTS extends Framework implements IFile {
         }
     }
     
-    ExportXLSX(file: ModelFile){
+    ExportXLSX(file: IFile){
         try{
             return undefined
         }
@@ -63,7 +63,7 @@ export default class FileTS extends Framework implements IFile {
         }
     }
     
-    ExportPDF(file: ModelFile){
+    ExportPDF(file: IFile){
         try{
             return undefined
         }
