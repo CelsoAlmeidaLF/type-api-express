@@ -1,7 +1,5 @@
 import * as env from '../config/env'
 
 export default class System {
-    constructor(){      
-
-    }
+    public CryptKey: string = process.env.CRYPT_KEY === undefined ? '0' : process.env.CRYPT_KEY
 }

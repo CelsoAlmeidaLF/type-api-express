@@ -4,28 +4,26 @@ import {JwtPayload} from 'jsonwebtoken';
 import { AES, enc, lib } from 'crypto-ts'
 
 export default class Autentication extends Framework {
+    
     constructor(){
         super()
     }
 
-    token(authorization: string | undefined): JwtPayload {
-        let key: string = process.env.CRYPT_KEY === undefined ? '0' : process.env.CRYPT_KEY
+    tokenJwt(authorization: string | undefined): JwtPayload {
         let authc = authorization;
         let arr: string[] = authc != undefined ? authc?.toString().split(' ')  : ['0']
-        let tk: JwtPayload = jwt.verify(arr[1], key) as JwtPayload
+        let tk: JwtPayload = jwt.verify(arr[1], this.CryptKey) as JwtPayload
         console.log(tk.user)
         return tk;
     }
 
     encrypt(message: string) : string {
-        let key: string = process.env.CRYPT_KEY === undefined ? '0' : process.env.CRYPT_KEY
-        let ciphertext = AES.encrypt(message, key);
+        let ciphertext = AES.encrypt(message, this.CryptKey);
         return ciphertext.toString();
     }
 
     decrypt(ciphertext: string): string {
-        let key: string = process.env.CRYPT_KEY === undefined ? '0' : process.env.CRYPT_KEY
-        var bytes  = AES.decrypt(ciphertext.toString(), key);
+        var bytes  = AES.decrypt(ciphertext.toString(), this.CryptKey);
         var plaintext = bytes.toString(enc.Utf8);
         return plaintext;
     }
