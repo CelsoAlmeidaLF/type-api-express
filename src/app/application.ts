@@ -1,9 +1,10 @@
-import ServerHttp from "../server/serverHttp";
+import API from "../api/server";
+import Server from "../api/server";
 import Framework from "../core/framwork";
 
 export default class Application extends Framework {
     
-    public server?: ServerHttp
+    public server?: API
     //public static ServerHtml?: ServerHttp 
 
     constructor(){       
@@ -12,6 +13,6 @@ export default class Application extends Framework {
 
     static Server(){      
         console.clear();
-        ServerHttp.CreateServer();
+        API.Server();
     }
 }

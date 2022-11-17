@@ -3,7 +3,7 @@ import IFile from "../core/interface/IFile";
 import IStreamFile from "./interface/file";
 import Framework from "./library/framework";
 
-export default class FileTS extends Framework implements IStreamFile {
+export default class StreamFile extends Framework implements IStreamFile {
 
     constructor(){
         super()
