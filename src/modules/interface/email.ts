@@ -1,6 +1,4 @@
 
-import ModelEmail from '../../models/modelEmail'
-
 export interface IEmailTo {
     to: string,
     name: string

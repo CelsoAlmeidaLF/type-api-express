@@ -1,15 +1,14 @@
 import fs from 'fs'
 import { promises } from 'fs'
 import path from 'path'
-import System from '../../bin/system';
+import System from '../../core/system';
 
 export default class LogEvents extends System {
 
-    result: string;
+    public result?: string;
 
     constructor(){
         super()
-        this.result = ''
     }
 
     async saveLog(message: string) {

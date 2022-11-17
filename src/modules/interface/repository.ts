@@ -1,4 +1,3 @@
-import ModelBase from "../../models/modelBase"
 
 export default interface IRepository {
     getall(sql: string, params: any[] | undefined): Promise<any[]>

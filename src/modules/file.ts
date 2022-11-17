@@ -1,4 +1,4 @@
-import ModelFile from "../models/modelFile"
+import ModelFile from "../app/models/modelFile"
 import IFile from './interface/file'
 import fs from "fs";
 import Framework from "./library/framework";

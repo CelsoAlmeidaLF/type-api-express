@@ -1,13 +1,13 @@
 import sqlite3 from "sqlite3";
-import System from "../../bin/system"
+import System from "../../core/system";
+
 
 export default class Database extends System {
 
-    public sucess: string
+    public sucess?: string
 
     constructor(){
         super()
-        this.sucess = ''
     }
 
     private Open(): sqlite3.Database {

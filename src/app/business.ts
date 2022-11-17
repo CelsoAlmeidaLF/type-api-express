@@ -1,5 +1,5 @@
 import Repository from "../modules/repository";
-import Framework from '../bin/framwork';
+import Framework from '../core/framwork';
 
  export default class Business extends Framework {
 

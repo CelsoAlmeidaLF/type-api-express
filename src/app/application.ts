@@ -1,5 +1,5 @@
 import ServerHttp from "../server/serverHttp";
-import Framework from "../bin//framwork";
+import Framework from "../core/framwork";
 
 export default class Application extends Framework {
     

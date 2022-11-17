@@ -1,9 +1,12 @@
-import System from "../../bin/system";
 import * as jwt from 'jsonwebtoken';
 import {JwtPayload} from 'jsonwebtoken';
 import { AES, enc, lib } from 'crypto-ts'
+import Database from "./database";
+import System from '../../core/system';
 
 export default class Framework extends System {
+
+    protected db?: Database
 
     token(authorization: string | undefined): JwtPayload {
         let key: string = process.env.CRYPT_KEY === undefined ? '0' : process.env.CRYPT_KEY

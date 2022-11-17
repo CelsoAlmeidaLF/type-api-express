@@ -1,11 +1,11 @@
-import ModelFile from "../../models/modelFile"
+import IFile from '../../core/interface/IFile'
 
-export default interface IFile {
-    ImportTXT(file: ModelFile): any
-    ImportCSV(file: ModelFile): any
-    ImportXLSX(file: ModelFile): any
-    ExportTXT(file: ModelFile): any
-    ExportCSV(file: ModelFile): any
-    ExportXLSX(file: ModelFile): any
-    ExportPDF(file: ModelFile): any
+export default interface IStreamFile {
+    ImportTXT(file: IFile): any
+    ImportCSV(file: IFile): any
+    ImportXLSX(file: IFile): any
+    ExportTXT(file: IFile): any
+    ExportCSV(file: IFile): any
+    ExportXLSX(file: IFile): any
+    ExportPDF(file: IFile): any
 }
