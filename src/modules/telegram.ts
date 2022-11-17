@@ -5,20 +5,20 @@ import Framework from "./library/framework";
 
 export default class Telegram extends Framework {
 
-        private token: string
+        private _token?: string
         private chatId: string
 
         constructor(){
             super()
-            this.token = '...';
             this.chatId = '...';
         }
 
         sendMessage(msg: string){
 
+            this._token = '..'
             try{        
                 let date = `${format(new Date(), 'yyyy-MM-dd HH:mm:ss')}`; 
-                let bot = new TelegramBot(this.token);
+                let bot = new TelegramBot(this._token);
                 bot.sendMessage(this.chatId, `[${date}] ${msg}`);
                 console.log('enviado, telegram ...');
             }catch(ex){

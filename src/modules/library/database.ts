@@ -1,5 +1,5 @@
 import sqlite3 from "sqlite3";
-import System from "./system";
+import System from "../../bin/system"
 
 export default class Database extends System {
 

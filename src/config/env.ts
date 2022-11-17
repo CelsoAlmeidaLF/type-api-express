@@ -1,4 +1,4 @@
 import path, {resolve} from 'path'
 import {config} from 'dotenv'
 
-config({ path: resolve(__dirname, '../../.env') })
+export default config({ path: resolve(__dirname, '../../.env') })

@@ -1,7 +1,7 @@
 import fs from 'fs'
 import { promises } from 'fs'
 import path from 'path'
-import System from './system';
+import System from '../../bin/system';
 
 export default class LogEvents extends System {
 

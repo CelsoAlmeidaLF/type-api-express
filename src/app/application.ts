@@ -1,10 +1,14 @@
 import ServerHttp from "../server/serverHttp";
-import Framework from "./framwork";
+import Framework from "../bin//framwork";
 
 export default class Application extends Framework {
+    
     constructor(){       
         super()
-        let server = new ServerHttp();
-        server.createServer();
+    }
+
+    static Server(){      
+        console.clear();
+        ServerHttp.CreateServer();
     }
 }

@@ -29,7 +29,7 @@ export default class Repository extends Framework implements IRepository {
         }
     }
 
-    set(sql: string, params: any[] | undefined): void {
+    async set(sql: string, params: any[] | undefined): Promise<void> {
         try{
             db.sucess = 'cadastro com sucesso!';
             db.run(sql, params);
@@ -39,7 +39,7 @@ export default class Repository extends Framework implements IRepository {
         }
     }
 
-    up(sql: string, params: any[] | undefined): void {
+    async up(sql: string, params: any[] | undefined): Promise<void> {
         try{
             db.sucess = 'atualização com sucesso!';
             db.run(sql, params);
@@ -49,7 +49,7 @@ export default class Repository extends Framework implements IRepository {
         }
     }
 
-    del(sql: string, params: any[] | undefined): void {
+    async del(sql: string, params: any[] | undefined): Promise<void> {
         try{
             db.sucess = 'remoção com sucesso!';
             db.run(sql, params);

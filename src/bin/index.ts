@@ -1,14 +1,14 @@
 import Application  from "../app/application";
 
 class Program extends Application {
+   
     constructor(){
         super()
     }
 
-    main(){
-
+    static main(){
+        this.Server();
     }
 }
 
-let prog = new Program();
-prog.main();
+Program.main();
