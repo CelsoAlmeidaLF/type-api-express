@@ -2,9 +2,9 @@ import { format } from 'date-fns';
 import {v4} from 'uuid';
 import {Response} from 'express';
 
-export default class Util {
+export default class API {
     
-    static async Ok(res: Response, js: JSON) {
+    static async Ok(res: Response, result: any) {
 
         let date = `${format(new Date(), 'yyyy-MM-dd HH:mm:ss')}`;
         let uuid : string = v4();
@@ -12,14 +12,14 @@ export default class Util {
         let json = {
             uid: uuid,
             dtConsulta: date,
-            result: js
+            result: result
         }
 
         res.json(json);
 
     }
 
-    static async Fail(res: Response, js: JSON) {
+    static async Fail(res: Response, result: any) {
 
         let date = `${format(new Date(), 'yyyy-MM-dd HH:mm:ss')}`;
         let uuid : string = v4();
@@ -27,7 +27,7 @@ export default class Util {
         let json = {
             uid: uuid,
             dtConsulta: date,
-            result: js
+            result: result
         }
         
         res.status(400).json(json);

@@ -1,11 +1,12 @@
 import express from 'express';
 import parser from 'body-parser';
 import router from './routers/index';
+import System from '../core/system';
 
 const app = express();
 const port : number = 3000;
 
-export default class ServerHttp {
+export default class API extends System {
 
     private middleware(){
         app.use(parser.urlencoded({extended: true}));
@@ -37,12 +38,12 @@ export default class ServerHttp {
         this.router();
     }
 
-    createServer(){
+    Server(){
         this.pipelines();
         app.listen(port, () => console.log(`rodando: http://localhost:${port}/api`));
     }  
 
-    static CreateServer(){
+    static Server(){
         this.pipelines();
         app.listen(port, () => console.log(`rodando: http://localhost:${port}/api/v1`));
     }
