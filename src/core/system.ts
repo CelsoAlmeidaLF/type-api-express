@@ -8,4 +8,8 @@ export default class System {
 
     public static app = express();
     public static readonly port = 3000;
+
+    constructor(){
+        console.clear()
+    }
 }

@@ -7,7 +7,7 @@ class Program extends Application {
     }
 
     static main(){
-        this.Server();
+        this.server();
     }
 }
 
