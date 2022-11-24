@@ -1,7 +1,5 @@
 import { RequestHandler } from "express";
 import parser from 'body-parser';
-import { BodyParser } from "body-parser";
-import cookieParser from 'cookie-parser'
 
 let handler: RequestHandler
 

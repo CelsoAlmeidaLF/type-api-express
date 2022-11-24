@@ -1,9 +1,9 @@
 import router from './routers/index';
-import System from '../core/system';
 import handler from './middleware/handler';
 import IServer from './interface/iserver';
+import Framework from '../core/framwork';
 
-export default class Server extends System implements IServer {
+export default class Server extends Framework implements IServer {
 
     public middleware(): void {
         this._middleware();
@@ -22,35 +22,35 @@ export default class Server extends System implements IServer {
         this.app.listen(this.port, () => console.log(`rodando: http://localhost:${this.port}/api/v1`));
     }
 
-    private _middleware(){
+    private _middleware(): void{
         this.app.use(handler)
     }
 
-    private _routers(){   
+    private _routers(): void{   
         this.app.use('/api/v1', router);
         this.app.get('/', (req, res) => { res.redirect('/api/v1') });
     }
 
-    private _pipelines(){
+    private _pipelines(): void{
         this._middleware();
         this._routers();
     }
 
-    private static _middleware(){
+    private static _middleware(): void{
         this.app.use(handler)
     }
 
-    private static _router(){   
+    private static _router(): void{   
         this.app.use('/api/v1', router);
         this.app.get('/', (req, res) => { res.redirect('/api') });
     }
 
-    private static _pipelines(){
+    private static _pipelines(): void{
         this._middleware();
         this._router();
     }
 
-    static server(){
+    static server(): void{
         this._pipelines();
         this.app.listen(this.port, () => console.log(`rodando: http://localhost:${this.port}/api/v1`));
     }

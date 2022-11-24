@@ -1,4 +1,4 @@
-import Application  from "../app/application";
+import Application  from "./application";
 
 class Program extends Application {
    
